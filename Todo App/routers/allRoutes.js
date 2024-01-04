@@ -2,9 +2,9 @@ const express = require("express");
 const router = express.Router();
 
 //Import controllers..
-const { createTodo } = require("../controllers/createTodo");
-const { getAllTodoSchema, getOneTodo} = require("../controllers/getAllTodos");
-const { deleteTodo } = require("../controllers/deleteTodo");
+const { createTodo } = require("../../controllers/createTodo");
+const { getAllTodoSchema, getOneTodo} = require("../../controllers/getAllTodos");
+const { deleteTodo } = require("../../controllers/deleteTodo");
 const { upDateTodo } = require("../controllers/updateTodo");
 
 
