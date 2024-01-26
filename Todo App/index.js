@@ -1,22 +1,18 @@
-const express = require("express");
-const app = express();
-require("dotenv").config();
-const PORT = process.env.PORT || 3000
+const express = require('express')
+const app = express()
+require('dotenv').config()
+const PORT = process.env.PORT ||8000
+
 app.listen(PORT, ()=>{
-    console.log(`My app is listing at port number ${PORT}`)
+    console.log(`My App is Running ${PORT} port!`)
 })
 
-app.get('/', (req, res) =>{
-    res.send(`<h1>This is my Homepage!</h1>`)
+app.get('/', (req, res)=>{
+    res.send(`<h1>This is my HomePage Mf<h1/>`)
 })
-//use here a body parser.
-app.use(express.json());
+const ConnectionWithDB = require("./config/db")
+ConnectionWithDB()
 
-//import the dbconnection.
-const dbConnect = require("./config/database");
-dbConnect(); //call dbconnect.
-
-//import my routers.
-const allRouters = require("./routers/allRoutes");
-app.use('/api/v1', allRouters); //this process is call moute.
-
+app.use(express.json())
+const allRoutes  = require('./router/routers')
+app.use('/api/v1', allRoutes)
